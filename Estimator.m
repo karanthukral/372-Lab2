@@ -21,9 +21,9 @@ classdef Estimator
             lambda = 1/mu;
         end
         
-        function [min, max] = estimateUniform(data)
-            min = min(data);
-            max = max(data);
+        function [minimum, maximum] = estimateUniform(data)
+            minimum = min(data);
+            maximum = max(data);
         end
         
         function [parzen1, parzen2] = estimate1DNonParametric(std_1, std_2, data)
@@ -39,7 +39,6 @@ classdef Estimator
                 sumVal2 = 0;
                 for i=1:N
                     sumVal1 = sumVal1 + ((1/h)*(1/(std_1*sqrt(2*pi)))*exp(-0.5*((j/10 - data(i))/std_1)^2));
-               
                     sumVal2 = sumVal2 + ((1/h)*(1/(std_2*sqrt(2*pi)))*exp(-0.5*((j/10 - data(i))/std_2)^2));
                 end
                 parzen1(j) = (1/N)*sumVal1;

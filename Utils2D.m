@@ -58,7 +58,29 @@ classdef Utils2D
 
             [~,class] = max([guassA guassB guassC]);
         end
+        
+        function class = nonParaClassifier(point, al, bl, cl, sigma)
+            aSum = 0;
+            bSum = 0;
+            cSum = 0;
+
+            for a = 1:length(al)
+                aMu = [al(a, 1) al(a, 2)];
+                aSum = aSum + (1/length(al)) * (1/(sqrt(2*pi)^2*sqrt(det(sigma))))*exp(-0.5*(point - aMu)*inv(sigma)*(point-aMu)');
+            end
+
+            for b = 1:length(bl)
+                bMu = [bl(b, 1) bl(b, 2)];
+                bSum = bSum + (1/length(bl)) * (1/(sqrt(2*pi)^2*sqrt(det(sigma))))*exp(-0.5*(point - bMu)*inv(sigma)*(point-bMu)');
+            end
+
+            for c = 1:length(cl)
+                cMu = [cl(c, 1) cl(c, 2)];
+                cSum = cSum + (1/length(cl)) * (1/(sqrt(2*pi)^2*sqrt(det(sigma))))*exp(-0.5*(point - cMu)*inv(sigma)*(point-cMu)');
+            end
+
+            [~, class] = max([aSum bSum cSum]);
+        end        
     end
-    
 end
 

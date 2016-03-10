@@ -76,3 +76,18 @@ plot(xRange, parzen2, 'r');
 hold on
 Plotting.plotGauss(realMu_A, realSigma_A, 'b');
 legend('Estimated', 'Actual');
+
+% Class B Non Parametric
+[parzen1, parzen2] = Estimator.estimate1DNonParametric(0.1, 0.4, b);
+xRange = 0:0.1:9.9;
+figure
+plot(xRange, parzen1, 'r');
+hold on
+Plotting.plotExp(realLambda_B, 'b')
+legend('Estimated', 'Actual');
+
+figure
+plot(xRange, parzen2, 'r');
+hold on
+Plotting.plotExp(realLambda_B, 'b')
+legend('Estimated', 'Actual');
