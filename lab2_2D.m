@@ -20,6 +20,7 @@ hold on
 scatter (cl(:,1), cl(:,2), 150, 'black','.');
 hold on
 gridML = Utils2D.grid(means, datapoints, variances);
+legend('Non Parametric Boundary', 'Set A', 'Set B', 'Set C');
 
 %2D Non Parametric Estimation Boundary
 

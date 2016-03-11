@@ -41,7 +41,7 @@ legend('Estimated', 'Actual');
 % Class B Exponential Estimation
 lamdba_est = Estimator.estimateExp(b);
 figure
-Plotting.plotExp(lambda_est, 'r'); % Estimated
+Plotting.plotExp(lamdba_est, 'r'); % Estimated
 hold on
 Plotting.plotExp(realLambda_B, 'b'); % Actual
 legend('Estimated', 'Actual');

@@ -17,8 +17,7 @@ classdef Estimator
         end
         
         function lambda = estimateExp(data)
-            mu = (1/length(data))*sum(data);
-            lambda = 1/mu;
+            lambda = length(data)/sum(data);
         end
         
         function [minimum, maximum] = estimateUniform(data)
